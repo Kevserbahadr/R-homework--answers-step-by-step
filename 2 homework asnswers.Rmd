@@ -1,0 +1,135 @@
+---
+title: "odev2"
+author: "Kevser Bahadır 20201101086"
+date: "2023-03-30"
+output: html_document
+---
+# R Programlamaya Giriş
+
+## 1. SORU 
+
+![](C:\Users\Kev\Desktop\ÖDEV\1 SORU.png)
+
+```{r}
+isima <- "Ahmet"
+isimb <- "Can"
+isimc <- "Zeynep"
+yaşa <- 25
+yaşb <- as.double(27.5)
+yaşc <- 22
+evcila <- "Hayır"
+evcilb <- "Evet"
+evcilc <- "Evet"
+
+```
+
+## 2. SORU
+
+![](C:\Users\Kev\Desktop\ÖDEV\İKİ SORU.png)
+
+a) 
+
+Not: as.numeric() ile de yazabilirdim.
+
+```{r}
+ürün1 <- "Bisküvi"
+ürün1satıs <- as.integer(5.60)
+ürün1satısadetı <- 200
+ürün2 <- "Kek"
+ürün2satıs <- as.integer(3.75)
+ürün2satısadedı <- 500
+ürün3 <- "Cips"
+ürün3satıs <- as.integer(7.90)
+ürün3satısadedi <- 750
+ürün4 <- "Çikolata"
+ürün4satıs <- 11
+ürün4satısadedi <- 456
+ürün5 <- "Ejder meyveli bar"
+ürün5satıs <- 150
+ürün5satısadedi <- 0
+
+```
+
+b)
+
+```{r}
+
+bisküvikazanc <- ürün1satıs * ürün1satısadetı 
+bisküvikazanc
+
+kekkazanc <- ürün2satıs * ürün2satısadedı
+kekkazanc
+
+cipskazanc <- ürün3satıs * ürün3satısadedi
+cipskazanc
+
+çikolatakazanc <- ürün4satıs * ürün4satısadedi
+çikolatakazanc
+
+ejdermeyvekazanc <- ürün5satıs * ürün5satısadedi
+ejdermeyvekazanc
+
+```
+
+c)
+
+```{r}
+x <- 5.60
+y<-as.integer(x)
+print(y)
+```
+```{r}
+a <- 3.75
+b<-as.integer(a)
+print(b)
+```
+
+```{r}
+k <- 7.90
+l<-as.integer(k)
+print(l)
+```
+
+
+d) 
+
+```{r}
+rm(ürün5)
+rm(ürün5satıs)
+rm(ürün5satısadedi)
+
+```
+
+
+## 3. SORU
+![](C:\Users\Kev\Desktop\ÖDEV\3 SORU.png)
+```{r}
+yol <- "Uzun yolculuklar, tek bir adım ile başlar."
+yol
+
+```
+
+## 4. SORU
+
+![](C:\Users\Kev\Desktop\ÖDEV\4 SORU.png)
+
+a)
+
+```{r}
+süper_uclu <- "Üşenme, erteleme, vazgeçme!"
+süper_uclu
+
+```
+
+b)
+
+```{r}
+ayse <- paste(yol,süper_uclu , sep = " ")
+ayse
+```
+
+
+
+
+
+
