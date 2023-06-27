@@ -1,0 +1,115 @@
+---
+title: "6. R ÖDEVİ"
+author: "Kevser Bahadır"
+date: "2023-05-19"
+output:
+  word_document: default
+  html_document:
+    df_print: paged
+---
+paketleri yüklüyoruz.
+
+```{r}
+library(dplyr)
+library(nycflights13)
+```
+
+```{r}
+df <- flights
+```
+
+Datayı inceleyelim.
+
+```{r}
+
+head(df)
+str(df)
+summary(df)
+
+```
+
+1. 1 Ocak’taki tüm uçuşları seçiniz.
+
+```{r}
+
+df %>%
+  select(flight, month) %>%
+  filter(month==1)
+
+```
+
+2. Yaz dönemindeki tüm uçuşları seçiniz. Haziran 6. ay 
+
+```{r}
+df %>%
+  select(flight, month) %>% 
+  filter(between(month,6,8))
+  
+```
+
+
+3. Kasım ve Aralık aylarında kalkan tüm uçuşları seçiniz.
+
+```{r}
+
+df %>%
+  select(flight,month) %>%
+  filter(month %in% c(11,12))
+
+```
+
+4. Varış gecikmesi 2 veya daha fazla saat olan uçuşları bulun. (Veride dk 
+cinsindendir.)
+
+
+```{r}
+df %>%
+  select(flight,dep_delay) %>%
+  filter(dep_delay >= 2)
+
+```
+
+5. Houston’a uçan tüm uçuşları bulunuz. (HOU)
+
+```{r}
+df %>%
+  select(flight,dest) %>%
+  filter(dest == "HOU")
+```
+
+6. American veya Delta tarafından gerçekleştirilen tüm uçuşları bulunuz. (şunu sor)
+
+```{r}
+df %>%
+  select(flight,carrier) %>%
+  filter(carrier == "UA" |
+         carrier == "DL")
+
+```
+
+7. İki saatten fazla varış zamanı geciken ancak geç kalkmayan (tam zamanında 
+kalkış yapan) uçuşları bulunuz.
+
+
+```{r}
+a <- df %>%
+  select(flight, arr_delay , dep_delay ) %>%
+  filter( arr_delay >= 120 &
+            dep_delay == 0 )
+print(a)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
