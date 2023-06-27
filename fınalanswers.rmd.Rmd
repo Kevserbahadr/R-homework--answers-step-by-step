@@ -1,0 +1,83 @@
+---
+title: "20201101086 FINAL"
+author: "Kevser Bahadır"
+date: "2023-06-20"
+output: html_document
+---
+
+#Bir kalp hastalığına ilişkin hasta bilgilerini içeren heart.csv dosyasını bilgisayarınıza 
+indiriniz. R Markdown kullanarak veri setini R’a aktarıp veri setine kalp ismini atayınız.
+Tidyverse paketini ve pipe operatörünü kullanarak aşağıdaki soruları cevaplayınız.
+
+
+CEVAP : EXCELİ DÜZENLEYİP IMPORT ETTİM.
+
+
+```{r}
+library(readr)
+heart <- read_csv("C:/Users/Kev/Downloads/heart.csv")
+View(heart)
+```
+
+1.Age, ChestPaintType, MaxHR, HeartDisease değişkenlerinden oluşan verileri seçiniz ve oluşan veri setine SH ismini veriniz.
+
+
+BİRİNCİ KISIM A CEVAPLARI
+
+#verileri seçtim
+
+```{r}
+SH <- heart %>%
+  select(Age, ChestPainType , MaxHR , HeartDisease)
+SH
+```
+
+2. SH veri setindeki 40 yaş üstü tüm hastalardan ChestPainType değişken değeri ATA olan verileri seçiniz.
+
+```{r}
+SH%>%
+  select(Age, ChestPainType) %>%
+  filter(Age >= 40 ) %>%
+  filter(ChestPainType == ATA )
+```
+
+3c) kalp veri setinde Cholesterol değişkenine ait tanımlayıcı istatistikleri (min, max, 
+kartiller, ortalama, medyan) ve basıklık-çarpıklık katsayılarını bulunuz.
+
+```{r}
+min(heart$Cholesterol)
+max(heart$Cholesterol)
+quantile(heart$Cholesterol , probs = c(0.25,0.5, 0.75))
+median(heart$Cholesterol)
+mean(heart$Cholesterol)
+
+```
+
+3b)) İkinci kısım: (20 p.)
+1. ggplot fonksiyonunu kullanarak kalp veri setinin x ekseninde Cholesterol, y 
+ekseninde MaxHR değişkenlerinin bulunduğu serpilme diyagramını çizdiriniz. 
+2. x eksenine Kolesterol, y eksenine Maksimum Kalp Atış Hızı isimlerini veriniz. 
+3. Serpilme diyagramındaki noktaları HeartDisease değişkenine göre renklendiriniz.
+
+3b1
+```{r}
+ggplot(heart , aes(x =Cholesterol , y = MaxHR) +
+         geom_point())
+```
+
+3b2
+```{r}
+ggplot(heart , aes(x =Cholesterol , y = MaxHR , labs(x = "Kolesterol" , y = "Maksimum Kalp Atış Hızı")) + 
+         geom_point())
+```
+
+
+3bc 
+
+```{r}
+ggplot(heart , aes(x =Cholesterol , y = MaxHR , labs(x = "Kolesterol" , y = "Maksimum Kalp Atış Hızı" , color = HeartDisease )) + 
+         geom_point())
+```
+
+
+
